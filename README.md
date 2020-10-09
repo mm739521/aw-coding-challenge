@@ -10,6 +10,8 @@ This coding challenge is composed of a basic prioritized backlog of product requ
 
 > The purpose of this challenge is to demonstrate general problem solving and programming within a set of real-world like stories. Time is very much a factor in the real world, so carefully evaluate how much effort is invested on each of the criteria so you can complete as many as possible within the allotted time.
 
+> Note: For each challenge(aside from Request #3 and #4) you will want to implement your code in the existing CodingChallenge projects. 
+
 ## Setup
 
 There should be no setup required aside from downloading the source code, validating all packages are downloaded, and compiling / running the application within IIS Express.
