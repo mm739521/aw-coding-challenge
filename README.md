@@ -14,7 +14,7 @@ This coding challenge is composed of a basic prioritized backlog of product requ
 
 ## Setup
 
-There should be no setup required aside from downloading the source code, validating all packages are downloaded, and compiling / running the application within IIS Express.
+There should be no setup required aside from downloading the source code, validating all packages are downloaded, and compiling / running the application within IIS Express. It's recommended that you use Visual Studio Community edition if you do not already have Visual Studio.
 
 ## Backlog
 
