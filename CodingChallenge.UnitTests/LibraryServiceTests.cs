@@ -19,35 +19,42 @@ namespace CodingChallenge.UnitTests
         }
 
         [Test]
-        public void MovieCountTest()
+        public void TestSearchMoviesCountReturnsExpectedCountWhenDuplicatesAreRemoved()
         {
             var count = LibraryService.SearchMoviesCount("");
-            Assert.AreEqual(29, count);
+            Assert.AreEqual(28, count);
         }
 
         [Test]
-        public void SearchMoviesTest()
+        public void TestSearchMoviesOnlyReturnsResultsByTitleWhenTitleIsProvided()
         {
             var movies = LibraryService.SearchMovies("Jaws");
             Assert.AreEqual(3, movies.Count());
         }
 
         [Test]
-        public void SortByTitleAscendingTest()
+        public void TestSearchMoviesCanSortTitlesInAscendingOrderWhileIgnoringArticles()
         {
-            var sorted = LibraryService.SearchMovies("", null, null, "Title", SortDirection.Ascending);
-            Assert.AreEqual(28, sorted.First().ID);
+            var sorted = LibraryService.SearchMovies("", null, null, "Title", SortDirection.Ascending).ToArray();
+          
+            var first = sorted[0];
+            Assert.AreEqual(28, first.ID);
+            Assert.AreEqual("An American Werewolf in London", first.Title);
+         
+            var second = sorted[1];
+            Assert.AreEqual(24, second.ID);
+            Assert.AreEqual("Back to the Future", second.Title);
         }
 
         [Test]
-        public void SortByYearAscendingTest()
+        public void TestSearchMoviesCanSortByYearInAscendingOrder()
         {
             var sorted = LibraryService.SearchMovies("", null, null, "Year", SortDirection.Ascending);
             Assert.AreEqual(6, sorted.First().ID);
         }
 
         [Test]
-        public void SortByYearDescendingTest()
+        public void TestSearchMoviesCanSortByYearInDescendingOrder()
         {
             var sorted = LibraryService.SearchMovies("", null, null, "Year", SortDirection.Descending);
             Assert.AreEqual(29, sorted.First().ID);
