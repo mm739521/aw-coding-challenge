@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var ag_grid_angular_1 = require("ag-grid-angular");
+var http_1 = require("@angular/common/http");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -17,6 +18,7 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpClientModule,
                 ag_grid_angular_1.AgGridModule.withComponents([])
             ],
             declarations: [app_component_1.AppComponent],

@@ -75,8 +75,10 @@ namespace CodingChallenge.DataAccess
 		}
 
 		//Service call to get movies by title
-		public IEnumerable<Movie> GetMoviesByTitle( string title )
+		public IEnumerable<Movie> GetMoviesByTitle( string title = "" )
 		{
+			title = title ?? "";
+
 			var movies = GetMovies().Where( s => s.Title.ToLower().Contains( title.ToLower() ) );
 
 			return movies;
@@ -99,7 +101,7 @@ namespace CodingChallenge.DataAccess
 		}
 
 		//Service call to get movies by franchise
-		public IEnumerable<Movie> GetMoviesByFranchise( string franchise )
+		public IEnumerable<Movie> GetMoviesByFranchise( string franchise = "" )
 		{
 			var movies = GetMovies().Where( s => s.Franchise.ToLower().Contains( franchise.ToLower() ) );
 

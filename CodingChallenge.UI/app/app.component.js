@@ -5,27 +5,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(http) {
+        this.http = http;
         this.name = 'Angular';
         this.columnDefs = [
-            { field: 'make' },
-            { field: 'model' },
-            { field: 'price' }
-        ];
-        this.rowData = [
-            { make: 'Toyota', model: 'Celica', price: 35000 },
-            { make: 'Ford', model: 'Mondeo', price: 32000 },
-            { make: 'Porsche', model: 'Boxter', price: 72000 }
+            { field: 'ID', sortable: true },
+            { field: 'Title', sortable: true, filter: true },
+            { field: 'Year', sortable: true },
+            { field: 'Rating', sortable: true },
+            { Franchise: 'Franchise', sortable: true },
         ];
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.rowData = this.http.get('/api/Movie/GetMoviesByTitle?title=');
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>Hello {{name}}</h1>",
-        })
+            templateUrl: './app.component.html',
+        }),
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], AppComponent);
     return AppComponent;
 }());
