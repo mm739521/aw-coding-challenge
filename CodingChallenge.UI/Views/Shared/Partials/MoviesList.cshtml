@@ -53,6 +53,7 @@
 
 @helper GetSortLink( string sortColumn )
 {
+                    /**/
     @Html.Raw( string.Format( "/?{0}={1}&{2}={3}",
         GridOptions.SortColumnKey,
         sortColumn,
@@ -61,6 +62,7 @@
 }
 @helper GetPageLink( int page )
 {
+                    /**/
     @Html.Raw( string.Format( "/?{0}={1}&{2}={3}&{4}={5}&{6}={7}",
         GridOptions.SortColumnKey,
         Model.GridOptions.SortColumn,
@@ -73,6 +75,7 @@
 }
 @helper SearchMovie( string searchText )
 {
+                    /**/
 
     @Html.Raw( string.Format( "/?{0}={1}&{2}={3}&{4}={5}&{6}={7}",
         GridOptions.SortColumnKey,
