@@ -14,7 +14,7 @@ namespace CodingChallenge.UI.Controllers
 	public class MovieController : ApiController
 	{
 
-		// GET api/<controller>/title
+		// GET api/Movie/GetMoviesByTitle?title=test
 		[Route( "GetMoviesByTitle" )]
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesByTitle( string title )
@@ -26,7 +26,7 @@ namespace CodingChallenge.UI.Controllers
 			return movies;
 		}
 
-		// GET api/<controller>/7
+		// GET api/Movie/GetMoviesByRating?isAbove=true&movieRating=7
 		[Route( "GetMoviesByRating" )]
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesByRating( bool isAbove, int movieRating )
@@ -38,7 +38,7 @@ namespace CodingChallenge.UI.Controllers
 			return movies;
 		}
 
-		// GET api/<controller>/7.9
+		// GET api/Movie/GetMoviesBetweenDates?startYear=1990&mendYear=2000
 		[Route( "GetMoviesBetweenDates" )]
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesBetweenDates( int startYear, int endYear )
@@ -50,7 +50,7 @@ namespace CodingChallenge.UI.Controllers
 			return movies;
 		}
 
-		// GET api/<controller>/7.9
+		// GET api/Movie/GetMoviesByFranchise?franchise=star
 		[Route( "GetMoviesByFranchise" )]
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesByFranchise( string franchise )

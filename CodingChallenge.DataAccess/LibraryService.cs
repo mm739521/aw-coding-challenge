@@ -60,7 +60,6 @@ namespace CodingChallenge.DataAccess
 			//no leading article
 			if ( String.IsNullOrEmpty( title ) )
 				return title;
-
 			//leading article is "the"
 			if ( title.StartsWith( "the ", StringComparison.CurrentCultureIgnoreCase ) )
 				return title.Substring( 4 ).TrimStart();
@@ -77,6 +76,9 @@ namespace CodingChallenge.DataAccess
 		//Service call to get movies by title
 		public IEnumerable<Movie> GetMoviesByTitle( string title )
 		{
+			//handle null
+			title = title ?? "";
+
 			var movies = GetMovies().Where( s => s.Title.ToLower().Contains( title.ToLower() ) );
 
 			return movies;
@@ -101,6 +103,9 @@ namespace CodingChallenge.DataAccess
 		//Service call to get movies by franchise
 		public IEnumerable<Movie> GetMoviesByFranchise( string franchise )
 		{
+			//handle null
+			franchise = franchise ?? "";
+
 			var movies = GetMovies().Where( s => s.Franchise.ToLower().Contains( franchise.ToLower() ) );
 
 			return movies;
