@@ -11,18 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
+var _ = require("underscore");
 var AppComponent = /** @class */ (function () {
     function AppComponent(http) {
         this.http = http;
         this.name = 'Angular';
         this.columnDefs = [
             { field: 'ID', sortable: true },
-            { field: 'Title', sortable: true, filter: true },
+            { field: 'Title', sortable: true },
             { field: 'Year', sortable: true },
             { field: 'Rating', sortable: true },
-            { Franchise: 'Franchise', sortable: true },
+            { field: 'Franchise', sortable: true },
         ];
+        this.search = _.debounce(this.search, 1000);
     }
+    AppComponent.prototype.search = function (searchText) {
+        this.rowData = this.http.get('/api/Movie/GetMoviesByTitle?title=' + searchText);
+    };
     AppComponent.prototype.ngOnInit = function () {
         this.rowData = this.http.get('/api/Movie/GetMoviesByTitle?title=');
     };

@@ -22,14 +22,18 @@
 
     <script src="systemjs.config.js"></script>
     <script>
-        System.import('app/main.js').catch(function (err) { console.error(err); });
+        System.import('app/main.js').catch(function (err) {
+            console.error(err);
+        });
     </script>
 </head>
-    <body>
-        <div>
-            <h1>My Movie Library</h1>
-            <my-app>Loading AppComponent content here ...</my-app>
-            @*@Html.Partial( "/Views/Shared/Partials/MoviesList.cshtml", Model )*@
-        </div>
-    </body>
+<body>
+    <div>
+        <h1>My Movie Library</h1>
+        @*Uncomment the below block to see angular grid*@
+        @*<my-app>Loading AppComponent content here ...</my-app>*@
+
+        @Html.Partial( "/Views/Shared/Partials/MoviesList.cshtml", Model )
+    </div>
+</body>
 </html>

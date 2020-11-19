@@ -79,7 +79,10 @@ namespace CodingChallenge.DataAccess
 			//handle null
 			title = title ?? "";
 
-			var movies = GetMovies().Where( s => s.Title.ToLower().Contains( title.ToLower() ) );
+			var movies = GetMovies()
+                .Where( s => s.Title.ToLower().Contains( title.ToLower() ) )
+                .GroupBy( x => x.Title )
+                .Select( x => x.FirstOrDefault() );
 
 			return movies;
 		}

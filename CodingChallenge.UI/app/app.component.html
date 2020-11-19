@@ -1,5 +1,8 @@
-﻿<ag-grid-angular style="width: 900px; height:500px;"
+﻿<p>
+    <input type="text" placeholder="Title Search..." id="searchText" #searchText (keyup)="search(searchText.value)" />
+</p>
+<ag-grid-angular style="width: 1000px; height:500px;"
                  class="ag-theme-balham"
-                 [rowData]="rowData"
+                 [rowData]="rowData | async"
                  [columnDefs]="columnDefs">
 </ag-grid-angular>

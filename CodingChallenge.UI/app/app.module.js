@@ -6,8 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
 var ag_grid_angular_1 = require("ag-grid-angular");
 var http_1 = require("@angular/common/http");
@@ -16,12 +16,16 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
+            declarations: [app_component_1.AppComponent],
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpClientModule,
                 ag_grid_angular_1.AgGridModule.withComponents([])
             ],
-            declarations: [app_component_1.AppComponent],
+            exports: [
+                http_1.HttpClientModule,
+            ],
+            providers: [],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
