@@ -61,13 +61,15 @@
 }
 @helper GetPageLink( int page )
 {
-    @Html.Raw( string.Format( "/?{0}={1}&{2}={3}&{4}={5}",
+    @Html.Raw( string.Format( "/?{0}={1}&{2}={3}&{4}={5}&{6}={7}",
         GridOptions.SortColumnKey,
         Model.GridOptions.SortColumn,
         GridOptions.SortDirectionKey,
         Model.GridOptions.SortDirection == SortDirection.Ascending ? GridOptions.SortAscendingValue : GridOptions.SortDescendingValue,
         GridOptions.PageKey,
-        page ) )
+        page,
+        GridOptions.SearchTextValue,
+        Model.GridOptions.SearchText ) )
 }
 @helper SearchMovie( string searchText )
 {

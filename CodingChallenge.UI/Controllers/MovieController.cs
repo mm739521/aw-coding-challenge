@@ -14,14 +14,21 @@ namespace CodingChallenge.UI.Controllers
 	public class MovieController : ApiController
 	{
 
+		public ILibraryService LibraryService { get; private set; }
+
+		public MovieController() { }
+
+		public MovieController( ILibraryService libraryService )
+		{
+			LibraryService = libraryService;
+		}
+
 		// GET api/Movie/GetMoviesByTitle?title=test
 		[Route( "GetMoviesByTitle" )]
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesByTitle( string title )
 		{
-			var service = new LibraryService();
-
-			var movies = service.GetMoviesByTitle( title );
+			var movies = LibraryService.GetMoviesByTitle( title );
 
 			return movies;
 		}
@@ -31,9 +38,7 @@ namespace CodingChallenge.UI.Controllers
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesByRating( bool isAbove, int movieRating )
 		{
-			var service = new LibraryService();
-
-			var movies = service.GetMoviesByRating( isAbove, movieRating );
+			var movies = LibraryService.GetMoviesByRating( isAbove, movieRating );
 
 			return movies;
 		}
@@ -43,9 +48,7 @@ namespace CodingChallenge.UI.Controllers
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesBetweenDates( int startYear, int endYear )
 		{
-			var service = new LibraryService();
-
-			var movies = service.GetMoviesBetweenDates( startYear, endYear );
+			var movies = LibraryService.GetMoviesBetweenDates( startYear, endYear );
 
 			return movies;
 		}
@@ -55,9 +58,7 @@ namespace CodingChallenge.UI.Controllers
 		[HttpGet]
 		public IEnumerable<Movie> GetMoviesByFranchise( string franchise )
 		{
-			var service = new LibraryService();
-
-			var movies = service.GetMoviesByFranchise( franchise );
+			var movies = LibraryService.GetMoviesByFranchise( franchise );
 
 			return movies;
 		}
